@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+/* For modern browsers */
+
+body {
+  background-color: white;
+  touch-action: pan-x pan-y;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* Hide the scrollbar for WebKit-based browsers (e.g., Chrome, Safari) */
+.ant-drawer-body::-webkit-scrollbar,
+.slider::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Disable dragging */
+html {
+  overflow-y: hidden;
+}
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.ant-carousel .slick-dots-bottom {
+  bottom: 1.5rem;
+}
+
+.ant-divider-horizontal.ant-divider-with-text-left::before,
+.ant-divider-horizontal.ant-divider-with-text-left::after {
+  border-top: 1px solid #ea580c;
+}
+
+.hero-billboard {
+  background-image: url("/images/ost-slide-1.png");
+}
+
+h1 {
+  line-height: 1.25 !important;
+}
+
+.ant-input:focus,
+.ant-input-textarea-affix-wrapper:focus,
+.ant-input-textarea-affix-wrapper:focus-visible,
+.ant-input-textarea-affix-wrapper:hover,
+.ant-input:hover {
+  border-color: #ea580c !important;
+}
+
+.ant-input:focus,
+.ant-input-textarea-affix-wrapper:focus,
+.ant-input-textarea-affix-wrapper:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 88, 5, 0.1);
+}
+
+.ant-skeleton-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+:where(.css-dev-only-do-not-override-txh9fw).ant-skeleton.ant-skeleton-element {
+  display: block;
+  width: auto;
+  height: 100% !important;
+}
+
+.ant-spin-dot-item {
+  background-color: #ea580c !important;
+}
+.ant-form-item-label {
+  padding-bottom: 0 !important;
+}
+/* .ant-drawer-content-wrapper {
+  z-index: 9500 !important;
+} */

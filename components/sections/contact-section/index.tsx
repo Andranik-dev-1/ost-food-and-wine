@@ -1,0 +1,39 @@
+"use client";
+import Container from "@/components/ui/container";
+import InfoCards from "./components/info-cards";
+import ContactForm from "./components/contact-form";
+import { isMobile } from "@/lib/utils";
+import ContactHeader from "./components/contact-header";
+import MapLocation from "./components/map-location";
+import { useEffect, useState } from "react";
+
+const ContactSection = ({ locale }: { locale: string }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
+    <>
+      {!isMobile() && (
+        <section id="contact" className="contact py-5">
+          <Container>
+            <ContactHeader locale={locale} />
+            <MapLocation />
+          </Container>
+          <Container>
+            <InfoCards />
+            <ContactForm locale={locale} />
+          </Container>
+        </section>
+      )}
+    </>
+  );
+};
+
+export default ContactSection;
