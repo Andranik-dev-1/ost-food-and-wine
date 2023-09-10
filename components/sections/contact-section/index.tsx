@@ -7,7 +7,17 @@ import ContactHeader from "./components/contact-header";
 import MapLocation from "./components/map-location";
 import { useEffect, useState } from "react";
 
-const ContactSection = ({ locale }: { locale: string }) => {
+const ContactSection = ({
+  contactHeaderTexts,
+  formTexts,
+  contactInfoTexts,
+  locale,
+}: {
+  contactHeaderTexts: any;
+  contactInfoTexts: any;
+  formTexts: any;
+  locale: string;
+}) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -23,12 +33,12 @@ const ContactSection = ({ locale }: { locale: string }) => {
       {!isMobile() && (
         <section id="contact" className="contact py-5">
           <Container>
-            <ContactHeader locale={locale} />
+            <ContactHeader contactHeaderTexts={contactHeaderTexts} />
             <MapLocation />
           </Container>
           <Container>
-            <InfoCards />
-            <ContactForm locale={locale} />
+            <InfoCards contactInfoTexts={contactInfoTexts} />
+            <ContactForm locale={locale} formTexts={formTexts} />
           </Container>
         </section>
       )}

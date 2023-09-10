@@ -7,7 +7,7 @@ import { Product } from "@/types";
 import { useRouter } from "next-intl/client";
 import { useEffect, useState } from "react";
 
-const PageClient = ({ locale }: { locale: string }) => {
+const PageClient = ({ locale, texts }: { locale: string; texts: any }) => {
   const router = useRouter();
   const items = useLikedStore((state) => state.items);
   const clearList = useLikedStore((state) => state.removeAll);
@@ -21,13 +21,13 @@ const PageClient = ({ locale }: { locale: string }) => {
     <>
       <div className="flex justify-between items-center">
         <h1 className="text-lg lg:text-2xl font-semibold text-orange-600">
-          Liked Products
+          {texts.likedTitle}
         </h1>
         <Button
           className="px-4 py-2 bg-orange-600 text-white"
           onClick={clearList}
         >
-          Remove all
+          {texts.deleteAllBtn}
         </Button>
       </div>
 
@@ -39,12 +39,13 @@ const PageClient = ({ locale }: { locale: string }) => {
       </div>
       {!likedItems.length && (
         <div className="h-full flex flex-col justify-center items-center py-10">
-          <p className="mb-3">Do you want to add product to prefferred ?</p>
+          <p className="mb-1">{texts.likedP1}</p>
+          <p className="mb-3">{texts.likedP2}</p>
           <Button
             className="px-4 py-2 my-2 bg-orange-600 text-white"
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/menu")}
           >
-            Go to choose something!
+            {texts.menuBtn}
           </Button>
         </div>
       )}

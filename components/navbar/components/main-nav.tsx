@@ -5,33 +5,33 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-const MainNav = () => {
+const MainNav = ({ texts }: { texts: any }) => {
   const pathname = usePathname();
 
   const routes = [
     {
       href: "/#hero",
-      label: "Գլխավոր",
+      label: texts.home,
       active: pathname === "/",
     },
     {
       href: "/menu",
-      label: "Մենյու",
+      label: texts.menu,
       active: pathname === "/menu",
     },
     {
       href: "/#about",
-      label: "Մեր մասին",
+      label: texts.about,
       active: pathname === "/#about",
     },
     {
       href: "/#contact",
-      label: "Հետադարձ կապ",
+      label: texts.contact,
       active: pathname === "/#contact",
     },
     {
       href: "/#gallery-images",
-      label: "Պատկերներ",
+      label: texts.gallery,
       active: pathname === "/#gallery-images",
     },
   ];

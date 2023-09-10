@@ -18,8 +18,6 @@ const DrawerPage = ({
   const router = useRouter();
 
   const onCloseHandler = () => {
-    console.log("close drawer");
-
     onCloseDrawer ? onCloseDrawer() : router.back();
   };
   return (

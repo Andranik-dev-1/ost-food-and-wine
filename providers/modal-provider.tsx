@@ -8,9 +8,10 @@ import FilltersDrawer from "@/components/drawers/fillters-drawer";
 
 interface ModalProviderProps {
   locale: string;
+  translations: any;
 }
 
-const ModalProvider = ({ locale }: ModalProviderProps) => {
+const ModalProvider = ({ locale, translations }: ModalProviderProps) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -23,10 +24,10 @@ const ModalProvider = ({ locale }: ModalProviderProps) => {
 
   return (
     <>
-      <ProductDrawer locale={locale} />
-      <ContactDrawer locale={locale} />
-      <NavbarDrawer locale={locale} />
-      <FilltersDrawer locale={locale} />
+      <ProductDrawer locale={locale} translations={translations.infoTexts} />
+      <ContactDrawer locale={locale} translations={translations} />
+      <NavbarDrawer translations={translations.contactInfoTexts} />
+      <FilltersDrawer locale={locale} translations={translations.filterTexts} />
     </>
   );
 };

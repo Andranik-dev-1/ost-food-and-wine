@@ -8,9 +8,10 @@ import { useRouter } from "next-intl/client";
 
 interface CartItemListProps {
   locale: string;
+  cartListTexts: any;
 }
 
-const CartItemList = ({ locale }: CartItemListProps) => {
+const CartItemList = ({ locale, cartListTexts }: CartItemListProps) => {
   const cartItems = useCart((state) => state.items);
   const [items, setItems] = useState<CartItemType[] | null>();
   const router = useRouter();
@@ -23,8 +24,10 @@ const CartItemList = ({ locale }: CartItemListProps) => {
     <div className="lg:col-span-7">
       {items && items.length === 0 ? (
         <div className="flex flex-col gap-5 justify-center items-center">
-          <p className="text-neutral-500 text-lg">No items added to cart.</p>
-          <Button onClick={() => router.push("/menu")}>Go To Menu</Button>
+          <p className="text-neutral-500 text-lg">{cartListTexts.emptyCart}</p>
+          <Button onClick={() => router.push("/menu")}>
+            {cartListTexts.menuBtn}
+          </Button>
         </div>
       ) : (
         items &&

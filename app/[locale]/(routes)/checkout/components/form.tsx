@@ -3,19 +3,18 @@ import useCart from "@/hooks/use-cart";
 import { useRouter } from "next-intl/client";
 import React, { useCallback, useEffect, useState } from "react";
 import { Form as AntdForm, Input, Radio, FormItemProps } from "antd";
-import Summary from "../../cart/components/summary";
+import Summary from "../../../../../components/ui/summary";
 import Skeleton from "@/components/ui/skeleton";
 import { OrderFormValues, PaymentMethods } from "@/types";
 import sendOrder from "@/actions/telegram/send-order";
 
-const Form = () => {
+const Form = ({ texts, locale }: { texts: any; locale: string }) => {
   const [form] = AntdForm.useForm();
   const { TextArea } = Input;
   const [mounted, setMounted] = useState(false);
 
   const cartItems = useCart((state) => state.items);
   const totalAmount = useCart((state) => state.totalAmount);
-  const deliveryPrice = useCart((state) => state.deliveryPrice);
   const removeAll = useCart((state) => state.removeAll);
   const router = useRouter();
 
@@ -59,7 +58,7 @@ const Form = () => {
   }, []);
 
   const onFinish = async (values: OrderFormValues) => {
-    await sendOrder(values, cartItems, totalAmount, deliveryPrice);
+    await sendOrder(values, cartItems, totalAmount);
     form.resetFields();
     removeAll();
   };
@@ -113,63 +112,63 @@ const Form = () => {
         <div className="mt-12 grid md:grid-cols-2 gap-8">
           <div>
             <AntdForm.Item
-              label="Name"
+              label={texts.nameLabel}
               name="name"
-              rules={[{ required: true, message: "Please input your name!" }]}
-              tooltip="This is a required field"
+              rules={[{ required: true, message: texts.nameErrorMessage }]}
             >
-              <Input placeholder="your name" />
+              <Input placeholder={texts.namePlaceholder} />
             </AntdForm.Item>
 
             <AntdForm.Item
-              label="Number"
+              label={texts.phoneLabel}
               name="number"
               rules={[
                 {
                   required: true,
-                  message: "Please input your phone number to contact!",
+                  message: texts.phoneErrorMessage,
                 },
               ]}
-              tooltip="This is a required field"
             >
-              <Input placeholder="your number" type="number" />
-            </AntdForm.Item>
-            <AntdForm.Item
-              label="Address"
-              name="address"
-              rules={[
-                { required: true, message: "Please input your address!" },
-              ]}
-              tooltip="This is a required field"
-            >
-              <Input placeholder="your adrress" />
+              <Input placeholder={texts.phonePlaceholder} type="number" />
             </AntdForm.Item>
 
             <AntdForm.Item
-              label="Payment method"
+              label={texts.addressLabel}
+              name="address"
+              rules={[{ required: true, message: texts.addressErrorMessage }]}
+            >
+              <Input placeholder={texts.addressPlaceholder} />
+            </AntdForm.Item>
+
+            <AntdForm.Item
+              label={texts.paymentMethod}
               name="paymentMethod"
+              initialValue={PaymentMethods.Cash}
               rules={[
                 { required: true, message: "Please check payment method!" },
               ]}
             >
               <Radio.Group>
-                <Radio value={PaymentMethods.Cash}>cash</Radio>
-                <Radio value={PaymentMethods.PosTerminal}>posterminal</Radio>
+                <Radio value={PaymentMethods.Cash}>{texts.paymentByCash}</Radio>
+                {/* <Radio value={PaymentMethods.PosTerminal}>posterminal</Radio> */}
               </Radio.Group>
             </AntdForm.Item>
           </div>
           <div>
-            <AntdForm.Item
-              label="Մանրամասներ"
-              name="details"
-              tooltip="This is a required field"
-            >
-              <TextArea
-                rows={5}
-                placeholder="Նշումներ պատվերի մասին (Ոչ Պարտադիր) or bnakaran padyezd ban"
-              />
+            <AntdForm.Item label={texts.detailsText} name="details">
+              <TextArea rows={5} placeholder={texts.detailsLabel} />
             </AntdForm.Item>
-            <Summary locale="am" buttonText="Order" submit />
+            <Summary
+              locale={locale}
+              summaryTexts={{
+                deliveryAreas: texts.deliveryAreas,
+                deliveryAmount: texts.deliveryAmount,
+                buttonText: texts.orderText,
+                orderSubtotal: texts.orderSubtotal,
+                total: texts.total,
+              }}
+              submit
+            />
           </div>
         </div>
       </AntdForm>

@@ -6,10 +6,10 @@ import InfoCards from "../sections/contact-section/components/info-cards";
 import MapLocation from "../sections/contact-section/components/map-location";
 
 interface NavbarDrawerProps {
-  locale: string;
+  translations: any;
 }
 
-const NavbarDrawer = ({ locale }: NavbarDrawerProps) => {
+const NavbarDrawer = ({ translations }: NavbarDrawerProps) => {
   const navbarDrawer = useNavbarDrawer();
 
   return (
@@ -18,7 +18,7 @@ const NavbarDrawer = ({ locale }: NavbarDrawerProps) => {
       open={navbarDrawer.isOpen}
       onCloseDrawer={navbarDrawer.onClose}
     >
-      <InfoCards />
+      <InfoCards contactInfoTexts={translations} />
       <MapLocation />
     </DrawerPage>
   );

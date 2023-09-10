@@ -1,21 +1,14 @@
-import { useState } from "react";
 import Link from "next-intl/link";
 import { AiFillHome } from "react-icons/ai";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-import {
-  LuGlobe,
-  LuHeart,
-  LuMail,
-  LuPhone,
-  LuShoppingBag,
-} from "react-icons/lu";
+import { LuHeart, LuMail, LuPhone, LuShoppingBag } from "react-icons/lu";
 import { usePathname } from "next-intl/client";
 import useContactDrawer from "@/hooks/drawers/use-contact-drawer";
-import LangSwitcher from "./lang-switcher";
+import LangSwitcher from "../../ui/lang-switcher";
 import useNavbarDrawer from "@/hooks/drawers/use-navbar-drawer";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ title }: { title: string }) => {
   const pathname = usePathname();
   const contactDrawer = useContactDrawer();
   const navbarDrawer = useNavbarDrawer();
@@ -56,12 +49,12 @@ const MobileNavbar = () => {
     <>
       <div className="fixed top-0 border-b border-orange-600 bg-white text-black w-full z-8000">
         <div className="absolute left-1/2 -translate-x-1/2 flex h-full items-center">
-          Ost Food & Wine
+          {title}
         </div>
         <div className="flex justify-between items-center">
           <div className="flex">
             <div
-              className={`text-base p-3 cursor-pointer ${
+              className={`text-xl p-3 cursor-pointer ${
                 contactDrawer.isOpen && "text-orange-600"
               }`}
               onClick={contactDrawer.onToggle}
@@ -69,16 +62,15 @@ const MobileNavbar = () => {
               <LuMail />
             </div>
 
-            <a href="tel:+37410234334" className="text-base p-3">
+            <a href="tel:+37410234334" className="text-xl p-3">
               <LuPhone />
             </a>
           </div>
           <div>
-            <LangSwitcher buttonClassName="text-black text-base" />
+            <LangSwitcher buttonClassName="text-black text-xl" />
           </div>
         </div>
       </div>
-
       <div
         className="fixed bottom-0 border-t border-orange-600 bg-white text-black w-full z-8000"
         style={{ boxShadow: "0px 15px 15px 8px #ea580c" }}

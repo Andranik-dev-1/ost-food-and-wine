@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { MouseEventHandler, useEffect, useState } from "react";
-import { LuExpand, LuHeart, LuShoppingCart } from "react-icons/lu";
-import { useRouter } from "next/navigation";
+import { LuHeart, LuShoppingCart } from "react-icons/lu";
+
 import { FaHeart } from "react-icons/fa";
 
 import Currency from "@/components/ui/currency";
@@ -14,6 +14,7 @@ import { Product } from "@/types";
 import useLikedStore from "@/hooks/use-liked";
 import Skeleton from "./skeleton";
 import { isMobile } from "@/lib/utils";
+import { useRouter } from "next-intl/client";
 
 interface ProductCard {
   data: Product;

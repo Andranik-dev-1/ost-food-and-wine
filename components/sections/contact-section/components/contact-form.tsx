@@ -4,7 +4,13 @@ import Button from "@/components/ui/button";
 import sendContactMessage from "@/actions/telegram/send-contact-message";
 import { sendContactMessageDto } from "@/types";
 
-const ContactForm = ({ locale }: { locale: string }) => {
+const ContactForm = ({
+  formTexts,
+  locale,
+}: {
+  formTexts: any;
+  locale: string;
+}) => {
   const [form] = Form.useForm();
   const { TextArea } = Input;
 
@@ -24,31 +30,31 @@ const ContactForm = ({ locale }: { locale: string }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
         <Form.Item
           name="name"
-          rules={[{ required: true, message: "Please input your name!" }]}
+          rules={[{ required: true, message: formTexts.nameValidation }]}
         >
-          <Input placeholder="Your Name" />
+          <Input placeholder={formTexts.namePlaceholder} />
         </Form.Item>
         <Form.Item name="number">
-          <Input placeholder="Your Phone" />
+          <Input placeholder={formTexts.phonePlaceholder} />
         </Form.Item>
       </div>
       <Form.Item name="title">
-        <Input placeholder="Title" />
+        <Input placeholder={formTexts.subjectPlaceholder} />
       </Form.Item>
       <Form.Item
         name="message"
-        rules={[{ required: true, message: "Please input your message!" }]}
+        rules={[{ required: true, message: formTexts.messageValidation }]}
       >
         <TextArea
           showCount
           maxLength={300}
           style={{ height: 120, resize: "none" }}
-          placeholder="disable resize"
+          placeholder={formTexts.messagePlaceholder}
         />
       </Form.Item>
       <div className="text-center">
         <Button type="submit" full className="mt-5">
-          Ուղարկել հաղորդագրություն
+          {formTexts.btnText}
         </Button>
       </div>
     </Form>

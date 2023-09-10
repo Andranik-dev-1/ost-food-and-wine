@@ -6,9 +6,10 @@ import useFilltersDrawer from "@/hooks/drawers/use-fillters";
 
 interface FilltersDrawerProps {
   locale: string;
+  translations: any;
 }
 
-const FilltersDrawer = ({ locale }: FilltersDrawerProps) => {
+const FilltersDrawer = ({ locale, translations }: FilltersDrawerProps) => {
   const filltersDrawer = useFilltersDrawer();
 
   return (
@@ -18,7 +19,12 @@ const FilltersDrawer = ({ locale }: FilltersDrawerProps) => {
       onCloseDrawer={filltersDrawer.onClose}
     >
       {filltersDrawer.data && (
-        <Filter name="Categories" data={filltersDrawer.data} locale={locale} />
+        <Filter
+          name="Categories"
+          data={filltersDrawer.data}
+          locale={locale}
+          texts={translations}
+        />
       )}
     </DrawerPage>
   );

@@ -1,5 +1,131 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "cart": {
+    "delivery-areas": "Delivery is available throughout Yerevan and to Zvartnots airport.",
+    "delivery-amount": "Delivery cost: 600-1500 AMD, depending on the kilometer.",
+    "cart-title": "Continue shopping",
+    "delete-all-btn": "Remove All",
+    "cart-p1": "Cart is empty",
+    "menu-btn": "Choose something from menu",
+    "your-cart-text": "My cart",
+    "delivery": "Delivery",
+    "delivery-places": "We are delivering only in Yerevan and to Zvartnots airport.",
+    "delivery-prices": "Delivery 600-1500 depending on the mileage.",
+    "total": "Total",
+    "subtotal-text": "Subtotal",
+    "submit-btn": "Continiue"
+  },
+  "contact": {
+    "contactHeader": {
+      "contact-heading": "Contact Us",
+      "contact-subheading": "Contact us to book a table, arrange delivery or ask a question. Our team is here to help and make your experience unforgettable."
+    },
+    "infoCards": {
+      "location-text": "Location",
+      "open-hours-text": "Open Hours",
+      "email-text": "Email",
+      "call-text": "Call",
+      "address-text": "Saryan str., 16 building",
+      "address-text-region": "Yerevan, Armenia, 0002"
+    },
+    "contactForm": {
+      "name-placeholder": "Your Name",
+      "name-validation": "Please input your name!",
+      "phone-placeholder": "Your Phone Number",
+      "subject-placeholder": "Title",
+      "message-placeholder": "Message",
+      "message-validation": "Please input your message!",
+      "send-message-btn": "Send Message"
+    }
+  },
+  "filter": {
+    "all-products": "All Products",
+    "categories": "Categories",
+    "sort-by": "Sort by..",
+    "by-popularity": "By popularity",
+    "by-price-highest": "By price. high to low",
+    "by-price-lowest": "By price. low to high",
+    "search-input": "Search by name",
+    "no-founded-product": "There are no products matching your request"
+  },
+  "footer": {
+    "feedback-title": "Send Feedback",
+    "feedback-input-placeholder": "Your comment",
+    "feedbackInputError": "Field can't be empty!",
+    "feedback-btn": "Send",
+    "address-title": "Address & Contact",
+    "socials-title": "Social Links",
+    "feedback-text": "Add your comment it is important for us",
+    "address": "Saryan str. 16, Yerevan, Armenia",
+    "socials-text": "Follow us on the social websites",
+    "copyright": "Copyright Ost Food & Wine . All Rights Reserved"
+  },
+  "header": {
+    "cart-text": "Cart",
+    "mobile-header-title": "Ost Food and Wine",
+    "home": "Home",
+    "about": "About",
+    "menu": "Menu",
+    "contact": "Contact",
+    "gallery": "Gallery",
+    "liked": "Favorites"
+  },
+  "liked": {
+    "liked-title": "Favorites",
+    "delete-all-btn": "Remove All",
+    "liked-p1": "Favorite list is empty",
+    "liked-p2": "To add the product to the wishlist press the heart icon on the card",
+    "menu-btn": "Go to Menu"
+  },
+  "main": {
+    "heroSection": {
+      "hero-heading": "Welcome to Ost Food and Wine",
+      "hero-subheading": "A one of a kind dining experience that offers a unique blend of flavors and culinary delights. Our restaurant is situated in the heart of the city, and we pride ourselves on providing our guests with an exceptional dining experience that they will cherish for a lifetime.",
+      "hero-menu-btn": "Check Our Menu"
+    },
+    "aboutSection": {
+      "about-heading": "About Ost Food & Wine",
+      "about-p1": "At Ost Food and Wine, we believe that food is not just about sustenance; it's an art form that should be celebrated and appreciated. Our menu features a wide range of dishes, each crafted with the utmost care and attention to detail. From our signature appetizers to our sumptuous main courses, everything on our menu is prepared using only the freshest and highest quality ingredients.",
+      "about-p2": "At Ost Food and Wine, we strive to create an environment that is warm, welcoming, and inviting. Our restaurant is designed to provide our guests with a comfortable and relaxing dining experience, whether you are coming in for a romantic dinner for two or a group celebration with family and friends.",
+      "about-p3": "We also take great pride in our extensive wine list, featuring some of the finest wines from around the world. Our wine selection has been carefully curated to complement our dishes perfectly, ensuring that every sip and bite is an explosion of flavor that will leave you craving for more.",
+      "about-p4": "Our team of highly skilled chefs and friendly staff is dedicated to providing you with exceptional service and hospitality, making your visit to Ost Food and Wine a truly unforgettable experience.",
+      "about-p5": "Thank you for choosing Ost Food and Wine, and we look forward to serving you soon!",
+      "about-wines-btn": "Check Our Wines"
+    },
+    "gallerySection": {
+      "gallery-heading": "Some photos from Our Restaurant",
+      "gallery-subheading": "Explore our restaurant's unique atmosphere and unforgettable moments through our captivating photo gallery."
+    }
+  },
+  "payment": {
+    "back-to-cart-btn": "My Cart",
+    "payment-text": "Payment",
+    "name-label": "Name",
+    "name-placeholder": "Your name (Required)",
+    "nameErrorMessage": "Please input your name!",
+    "phoneErrorMessage": "Please input your phone number to contact!",
+    "addressErrorMessage": "Please input your address!",
+    "paymentMethodErrorMessage": "",
+    "phone-label": "Phone number",
+    "phone-placeholder": "Your phone number (Required)",
+    "phone-secondary-placeholder": "Second phone number (Optional)",
+    "address-label": "Address",
+    "address-placeholder": "House number and street name (Required)",
+    "address-optional-placeholder": "Apartment, suite, unit, etc. (Optional)",
+    "payment-method-text": "Payment Method",
+    "payment-by-cash": "By cash",
+    "payment-by-credit": "By credit card",
+    "details-text": "Details",
+    "details-label": "Order notes (optional)",
+    "product-text": "Product",
+    "subtotal-text": "Subtotal",
+    "your-order-text": "Your Order",
+    "order-btn-text": "To Order",
+    "total": "Total"
+  },
+  "productPage": {
+    "description": "Description",
+    "addToCart": "Add To Cart",
+    "addToLiked": "Add To Preffered",
+    "similarProducts": "Similar Products"
   }
 }

@@ -7,9 +7,10 @@ import ContactHeader from "../sections/contact-section/components/contact-header
 
 interface ProductDrawerProps {
   locale: string;
+  translations: any;
 }
 
-const ContactDrawer = ({ locale }: ProductDrawerProps) => {
+const ContactDrawer = ({ locale, translations }: ProductDrawerProps) => {
   const contactDrawer = useContactDrawer();
 
   return (
@@ -18,8 +19,8 @@ const ContactDrawer = ({ locale }: ProductDrawerProps) => {
       open={contactDrawer.isOpen}
       onCloseDrawer={contactDrawer.onClose}
     >
-      <ContactHeader locale={locale} />
-      <ContactForm locale={locale} />
+      <ContactHeader contactHeaderTexts={translations.contactHeaderTexts} />
+      <ContactForm formTexts={translations.contactFormTexts} locale={locale} />
     </DrawerPage>
   );
 };

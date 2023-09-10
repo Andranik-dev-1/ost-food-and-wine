@@ -16,7 +16,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           `
           ${full ? "w-full " : "w-auto"}
-            sm:w-auto
             rounded-full 
             bg-orange-600
             border

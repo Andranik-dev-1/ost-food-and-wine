@@ -7,9 +7,10 @@ import DrawerPage from "../drawer-page";
 
 interface ProductDrawerProps {
   locale: string;
+  translations: any;
 }
 
-const ProductDrawer = ({ locale }: ProductDrawerProps) => {
+const ProductDrawer = ({ locale, translations }: ProductDrawerProps) => {
   const previewModal = usePoductModal();
   const product = usePoductModal((state) => state.data);
 
@@ -26,7 +27,7 @@ const ProductDrawer = ({ locale }: ProductDrawerProps) => {
       <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
         <Gallery images={product.images} />
         <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-          <Info data={product} locale={locale} />
+          <Info data={product} locale={locale} infoTexts={translations} />
         </div>
       </div>
       <hr className="my-10" />

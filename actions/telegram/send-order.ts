@@ -5,8 +5,7 @@ import { toast } from "react-hot-toast";
 const sendOrder = async (
   formData: OrderFormValues,
   cartItems: CartItem[],
-  totalAmount: number,
-  deliveryPrice: number
+  totalAmount: number
 ) => {
   const ordersString = cartItems
     .map((item) => {
@@ -29,11 +28,7 @@ const sendOrder = async (
   %0A
   %0AՆշումներ պատվերի մասին: ${formData.details},
   %0A
-  %0AՊատվիրել գինը: ${totalAmount},
-  %0A
-  %0AԱռաքման գին: ${deliveryPrice},
-  %0A
-  %0Aընդհանուր գումարը: ${totalAmount + deliveryPrice}
+  %0AՊատվերի գինը: ${totalAmount},
   `;
 
   const botToken = process.env.NEXT_PUBLIC_BOT_TOKEN;

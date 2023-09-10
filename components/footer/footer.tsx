@@ -2,14 +2,13 @@
 import { FaFacebook, FaViber, FaMapMarkerAlt } from "react-icons/fa";
 import { SlSocialInstagram } from "react-icons/sl";
 import { IoCall } from "react-icons/io5";
-// import CommentForm from "./comment-form";
 import Container from "../ui/container";
 import Link from "next-intl/link";
 import FooterForm from "./footer-form";
 import { isMobile } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-const Footer = () => {
+const Footer = ({ texts }: { texts: any }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,12 +25,17 @@ const Footer = () => {
           <Container>
             <div className="text-center my-5 mt-8">
               <h3 className="font-bold text-orange-600 text-xl sm:text-2xl lg:text-3xl sm:max-w-2xl max-w-xs mb-2 mx-auto">
-                {"Ուղարկել Գնահատական"}
+                {texts.feedbackTitle}
               </h3>
-              <p>{"Ավելացրեք ձեր մեկնաբանությունը, դա մեզ համար կարևոր է"}</p>
+              <p>{texts.feedbackText}</p>
             </div>
 
-            <FooterForm />
+            <FooterForm
+              texts={{
+                feedbackInputPlaceholder: texts.feedbackInputPlaceholder,
+                feedbackBtn: texts.feedbackBtn,
+              }}
+            />
 
             <div className="flex justify-center mb-3">
               <Link
@@ -41,15 +45,15 @@ const Footer = () => {
               >
                 <span className="mr-2 flex items-center">
                   <FaMapMarkerAlt className="text-orange-600 mr-1 text-lg" />
-                  {"Սարյան փող., 16 շենք"}
+                  {texts.address}
                 </span>
               </Link>
-              <Link href="tel:+37410234334">
+              <a href="tel:+37410234334">
                 <span className="flex items-center">
                   <IoCall className="text-orange-600 mr-1 text-lg" />
                   010 234 334
                 </span>
-              </Link>
+              </a>
             </div>
 
             <div className="flex justify-center mb-8">
@@ -74,7 +78,7 @@ const Footer = () => {
           </Container>
           <div className="mx-auto py-8 bg-black/90">
             <p className="text-center text-xs text-white">
-              &copy; 2023 Store, Inc. All rights reserved.
+              &copy; {texts.copyright}
             </p>
           </div>
         </footer>

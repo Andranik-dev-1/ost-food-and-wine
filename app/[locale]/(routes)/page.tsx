@@ -1,52 +1,51 @@
-import Container from "@/components/ui/container";
-import ImageGallery from "@/components/Image-gallery";
+import { useLocale } from "next-intl";
+import { getTranslator } from "next-intl/server";
 import AboutSection from "@/components/sections/about-section";
 import ContactSection from "@/components/sections/contact-section";
-import { useLocale } from "next-intl";
+import HeroSection from "@/components/sections/hero-section";
+import GallerySection from "@/components/sections/gallery-section";
 
 export const revalidate = 0;
 
 export default async function HomePage() {
   const locale = useLocale();
+  const tContact = await getTranslator(locale, "contact");
+
+  const contactFormTexts = {
+    btnText: tContact("contactForm.send-message-btn"),
+    namePlaceholder: tContact("contactForm.name-placeholder"),
+    nameValidation: tContact("contactForm.name-validation"),
+    phonePlaceholder: tContact("contactForm.phone-placeholder"),
+    subjectPlaceholder: tContact("contactForm.subject-placeholder"),
+    messagePlaceholder: tContact("contactForm.message-placeholder"),
+    messageValidation: tContact("contactForm.message-validation"),
+  };
+
+  const contactInfoTexts = {
+    locationText: tContact("infoCards.location-text"),
+    openHoursText: tContact("infoCards.open-hours-text"),
+    emailText: tContact("infoCards.email-text"),
+    callText: tContact("infoCards.call-text"),
+    addressText: tContact("infoCards.address-text"),
+    addressTextRegion: tContact("infoCards.address-text-region"),
+  };
+
+  const contactHeaderTexts = {
+    header: tContact("contactHeader.contact-heading"),
+    subheader: tContact("contactHeader.contact-subheading"),
+  };
+
   return (
     <>
-      <Container>
-        <div id="hero" className="overflow-hidden">
-          <div
-            className="bg-cover bg-fixed lg:bg-local bg-center rounded-xl"
-            style={{ backgroundImage: `url('/images/ost-slide-1.png')` }}
-          >
-            <div className="w-full flex py-44 flex-col justify-center items-center text-center gap-y-8 bg-black/60 rounded-xl">
-              <h1 className="font-bold text-orange-600 text-3xl sm:text-4xl lg:text-5xl sm:max-w-xl max-w-xs">
-                Բարի գալուստ Օստ Ուտելիք և Գինի
-              </h1>
-              <p className="text-white sm:max-w-2xl max-w-xs">
-                Եզակի ճաշի փորձ, որն առաջարկում է համերի և խոհարարական
-                հաճույքների յուրահատուկ խառնուրդ: Մեր ռեստորանը գտնվում է քաղաքի
-                սրտում, և մենք հպարտանում ենք, որ մեր հյուրերին մատուցում ենք
-                բացառիկ ճաշի փորձ, որը նրանք կփայփայեն ողջ կյանքի ընթացքում:
-              </p>
-            </div>
-          </div>
-        </div>
-      </Container>
-
-      {/* about section */}
+      <HeroSection />
       <AboutSection />
-      {/* contact sectio */}
-
-      <ContactSection locale={locale} />
-      {/* section gallery */}
-      <section className="py-5 md:py-10" id="gallery-images">
-        <Container>
-          <h2 className="font-bold text-orange-600 text-2xl sm:text-3xl lg:text-4xl sm:max-w-2xl max-w-xs">
-            Լուսանկարներ մեր ռեստորանից
-          </h2>
-          <div className="border-b-2 border-orange-600 my-3 mb-8"></div>
-
-          <ImageGallery />
-        </Container>
-      </section>
+      <ContactSection
+        locale={locale}
+        contactHeaderTexts={contactHeaderTexts}
+        contactInfoTexts={contactInfoTexts}
+        formTexts={contactFormTexts}
+      />
+      <GallerySection locale={locale} />
     </>
   );
 }

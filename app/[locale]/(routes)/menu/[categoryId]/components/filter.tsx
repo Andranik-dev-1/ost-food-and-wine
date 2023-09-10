@@ -9,9 +9,10 @@ interface FilterProps {
   data: Category[];
   name: string;
   locale: string;
+  texts: any;
 }
 
-const Filter: React.FC<FilterProps> = ({ data, name, locale }) => {
+const Filter: React.FC<FilterProps> = ({ data, name, locale, texts }) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -29,7 +30,7 @@ const Filter: React.FC<FilterProps> = ({ data, name, locale }) => {
             )}
             onClick={() => router.push(`/menu`)}
           >
-            {"all"}
+            {texts.all}
           </Button>
         </div>
         {data.map((category) => (
